@@ -1,11 +1,4 @@
-/*************************************************************
-*
-* Solution   : Mafia 2 Multiplayer
-* Project    : Updater
-* File       : Updater.cpp
-* Developers : AaronLad <aaron@m2-multiplayer.com>
-*
-***************************************************************/
+// Client.Launcher2.cpp : main project file.
 
 #include "stdafx.h"
 #include "Form1.h"
@@ -43,7 +36,7 @@ int main(array<System::String ^> ^args)
 
 	// Create the main window and run it
 	ClientLauncher2::Form1 ^ form = gcnew ClientLauncher2::Form1();
-	form->label1->Text = L"No Text Here...";
+	form->label1->Text = L"LOL";
 
 	ClientLauncher2::Application::Run(form);
 
