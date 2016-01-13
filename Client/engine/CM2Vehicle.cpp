@@ -490,7 +490,7 @@ void CM2Vehicle::SetSirenOn( bool bSirenOn )
 		DWORD C_Vehicle__SetBeaconLightOn = 0x1203DD0;
 		_asm push bSirenOn;
 		_asm mov ecx, dwVehicleData;
-		_asm call C_Vehicle__SetBeaconLightOn;
+		_asm call COffsets::FUNC_CVehicle__SetBeaconLightOn;//C_Vehicle__SetBeaconLightOn;
 	}
 }
 
@@ -788,7 +788,7 @@ void CM2Vehicle::SetHandbrake ( bool bHandbrake )
 		_asm push 0;
 		_asm push 0;
 		_asm mov ecx, dwVehicleData;
-		_asm call C_Vehicle__SetHandbrake;
+		_asm call COffsets::FUNC_CVehicle__SetHandbrake;//C_Vehicle__SetHandbrake;
 	}
 }
 
