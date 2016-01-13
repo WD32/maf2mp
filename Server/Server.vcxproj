@@ -63,7 +63,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>crashrpt1401.lib;winmm.lib;ws2_32.lib;dbghelp.lib;RakNetStatic_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>crashrpt1403.lib;winmm.lib;ws2_32.lib;dbghelp.lib;RakNetStatic_d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>../Libraries/CrashRpt;../Libraries/RakNet/Lib</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
