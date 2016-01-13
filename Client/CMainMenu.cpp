@@ -188,7 +188,7 @@ bool CMainMenu::OnDisconnectClick( CGUIElement_Impl * pElement )
 	pCore->StopMultiplayer();
 
 	// Start multiplayer activities
-	pCore->StartMultiplayer();
+	//pCore->StartMultiplayer();
 
 	// Show the main menu
 	SetVisible( true );
@@ -328,7 +328,9 @@ void CMainMenu::SetVisible( bool bVisible )
 	if( !bVisible )
 	{
 		// Restore the previous mouse state
-		pCore->GetGUI()->SetCursorVisible( m_bPreviousMouseState );
+		//pCore->GetGUI()->SetCursorVisible( m_bPreviousMouseState );
+		pCore->GetGUI()->SetCursorVisible( false ); //If we are hidding the main menu, then we hide cutsor
+
 
 		// Hide the menu settings if they're showing
 		if( pCore->GetGUI()->GetSettings()->IsVisilbe() )
