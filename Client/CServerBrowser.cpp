@@ -793,6 +793,10 @@ void CServerBrowser::ProcessNetworkPacket( DefaultMessageIDTypes packet )
 	case ID_ALREADY_CONNECTED: strMessage.Set( "You're already connected to a server." ); break;
 	}
 
+	// Show the main menu if it's hidden
+	if (!pCore->GetGUI()->GetMainMenu()->IsVisible())
+		pCore->GetGUI()->GetMainMenu()->SetVisible(true);
+
 	// Show the message box
 	SetMessageBox ( (bLost ? "Connection terminated" : "Failed to connect"), strMessage.Get () );
 }
