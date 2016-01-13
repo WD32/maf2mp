@@ -23,6 +23,15 @@ lua_newthread_t							CLua::plua_newthread = 0;
 lua_setfield_t							CLua::plua_setfield = 0;
 lua_settop_t							CLua::plua_settop = 0;
 
+lua_getfield_t							CLua::plua_getfield = 0;
+lua_type_t								CLua::plua_type = 0;
+lua_typename_t							CLua::plua_typename = 0;
+lua_pushnil_t							CLua::plua_pushnil = 0;
+lua_next_t								CLua::plua_next = 0;
+lua_pushvalue_t							CLua::plua_pushvalue = 0;
+lua_isuserdata_t						CLua::plua_isuserdata = 0;
+lua_touserdata_t						CLua::plua_touserdata = 0;
+
 DWORD	dwLuaState						= 0;
 char	* szLuaCall						= "";
 char	* szCallName					= "";
@@ -62,6 +71,16 @@ void CLua::Initialise( void )
 	plua_newthread			= (lua_newthread_t)COffsets::FUNC_CLua__newthread;
 	plua_setfield			= (lua_setfield_t)COffsets::FUNC_CLua__setfield;
 	plua_settop				= (lua_settop_t)COffsets::FUNC_CLua__settop;
+
+	plua_getfield			= (lua_getfield_t)(0x005C3070);
+	plua_type				= (lua_type_t)(0x005C2530);
+	plua_typename			= (lua_typename_t)(0x005C2570);
+	plua_pushnil			= (lua_pushnil_t)(0x005C2C10);
+	plua_next				= (lua_next_t)(0x005C3C60);
+	plua_pushvalue			= (lua_pushvalue_t)(0x005C24E0);
+	plua_isuserdata			= (lua_isuserdata_t)(0x005C2690);
+	plua_touserdata			= (lua_touserdata_t)(0x005C2AF0);
+
 
 	// Hook LoadBuffer
 	plua_loadbuffer			= (lua_loadbuffer_t)CPatcher::InstallJmpPatch( COffsets::FUNC_CLua__loadbuffer, (DWORD)HOOK_CLua__loadbuffer );
