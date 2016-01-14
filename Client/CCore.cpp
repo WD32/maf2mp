@@ -414,18 +414,18 @@ void CCore::OnDeviceRender( void )
 	if( m_pPedManager )
 		m_pPedManager->Pulse();
 
-	if ( m_pPlayerManager && m_pPlayerManager->GetLocalPlayer() && m_pPlayerManager->GetLocalPlayer()->IsSpawned() ) {
+	if ( m_pPlayerManager && m_pPlayerManager->GetLocalPlayer() && m_pPlayerManager->GetLocalPlayer()->IsSpawned() && !pCore->GetGUI()->GetMainMenu()->IsVisible() ) {
 		CM2Ped * pPlayerPed = m_pPlayerManager->GetLocalPlayer()->GetPlayerPed();
 		C_PlayerControls playerControls = pPlayerPed->GetPed()->m_playerControls;
 
 		pCore->GetGraphics()->DrawText ( 300, 300, D3DCOLOR_ARGB(255,255,0,0), 1.0f, "tahoma-bold", true, "Is Moving: %s\nMovement State: %d\nModifiers: %d\nMouse Flags: %d\nKeyboard Flags: %d\nIs Aiming: %s\nIs Crouching: %s", playerControls.m_bIsMoving ? "Yes" : "No", playerControls.m_ePlayerMovementState, playerControls.m_byteModifiers, playerControls.m_byteMouseFlags, playerControls.m_byteKeyboardFlags, playerControls.m_bIsAiming ? "Yes" : "No", playerControls.m_bIsCrouching ? "Yes" : "No" );
 	}
 
-	if ( m_pPlayerManager && m_pPlayerManager->GetLocalPlayer() && m_pPlayerManager->GetLocalPlayer()->IsInVehicle() ) {
+	if ( m_pPlayerManager && m_pPlayerManager->GetLocalPlayer() && m_pPlayerManager->GetLocalPlayer()->IsInVehicle() && !pCore->GetGUI()->GetMainMenu()->IsVisible() ) {
 		CNetworkVehicle * pNetworkVehicle = m_pPlayerManager->GetLocalPlayer()->GetVehicle ();
 		CVector3 vecSpeed = pNetworkVehicle->GetVehicle()->GetVehicle()->m_vecMoveSpeed;
 
-		pCore->GetGraphics()->DrawText ( 300, 300, D3DCOLOR_ARGB(255, 255, 0, 0), 1.0f, "tahoma-bold", true, "Fuel: %f, Speed: %f (%f, %f, %f), Wheels: %f (%f), Lights: %s", pNetworkVehicle->GetFuel (), pNetworkVehicle->GetSpeed(), vecSpeed.fX, vecSpeed.fY, vecSpeed.fZ, pNetworkVehicle->GetVehicle()->GetSteer(), pNetworkVehicle->GetSteer(), pNetworkVehicle->GetVehicle()->GetLightState() ? "Enabled" : "Disabled" );
+		pCore->GetGraphics()->DrawText ( 300, 280, D3DCOLOR_ARGB(255, 255, 0, 0), 1.0f, "tahoma-bold", true, "Fuel: %f, Speed: %f (%f, %f, %f), Wheels: %f (%f), Lights: %s", pNetworkVehicle->GetFuel (), pNetworkVehicle->GetSpeed(), vecSpeed.fX, vecSpeed.fY, vecSpeed.fZ, pNetworkVehicle->GetVehicle()->GetSteer(), pNetworkVehicle->GetSteer(), pNetworkVehicle->GetVehicle()->GetLightState() ? "Enabled" : "Disabled" );
 	}
 
 	// Was the hide stuff key pressed?

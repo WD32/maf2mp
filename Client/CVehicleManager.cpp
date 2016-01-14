@@ -125,7 +125,7 @@ void CVehicleManager::Process( void )
 	for( EntityId i = 0; i < MAX_VEHICLES; i++ )
 	{
 		// Is the current vehicle active?
-		if( IsActive(i) && m_pNetworkVehicle[i]->GetVehicle() && m_pNetworkVehicle[i]->GetVehicle()->IsOnScreen () )
+		if( IsActive(i) && m_pNetworkVehicle[i]->GetVehicle() && m_pNetworkVehicle[i]->GetVehicle()->IsOnScreen () && !pCore->GetGUI()->GetMainMenu()->IsVisible() )
 		{
 			// Get the vehicle position
 			m_pNetworkVehicle[i]->GetPosition ( &vecPosition );
